@@ -13,5 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/books','BooksController@store');
-Route::patch('/books/{book}','BooksController@update');
+// Books routs
+Route::get('/book','BookController@index')->name('book.index');
+Route::post('/book','BookController@store')->name('book.store');
+Route::get('/book/{book}','BookController@show')->name('book.show');
+Route::patch('/book/{book}','BookController@update')->name('book.update');
+Route::delete('/book/{book}','BookController@destroy')->name('book.destroy');
+
+// Author routs
+Route::post('/author', 'AuthorController@store')->name('author.store');
