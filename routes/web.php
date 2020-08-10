@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 // Books routs
 Route::get('/book','BookController@index')->name('book.index');
 Route::post('/book','BookController@store')->name('book.store');
@@ -22,3 +27,8 @@ Route::delete('/book/{book}','BookController@destroy')->name('book.destroy');
 
 // Author routs
 Route::post('/author', 'AuthorController@store')->name('author.store');
+
+
+Route::post('/checkout/{book}', 'CheckoutBookController@store');
+Route::post('/checkin/{book}', 'CheckinBookController@store');
+
