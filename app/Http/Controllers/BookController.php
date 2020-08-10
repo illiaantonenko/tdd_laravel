@@ -31,7 +31,7 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect(route('books.index'));
+        return redirect(route('book.index'));
     }
 
     /**
@@ -41,7 +41,7 @@ class BookController extends Controller
     {
         return request()->validate([
             'title' => 'required|string',
-            'author' => 'required|string',
+            'author_id' => 'required',
         ]);
     }
 }
